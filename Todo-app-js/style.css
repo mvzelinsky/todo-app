@@ -85,6 +85,8 @@ body{
 }
 .item i.complete:hover{
     cursor: pointer;
+    color: #6eb200;
+    transition-duration: 0.2s;
 }
 .fa-check-circle{
     color:#6eb200;
@@ -103,6 +105,20 @@ body{
     text-decoration: line-through;
     color : #ccc;
 }
+
+.item i.edit{
+    position: absolute;
+    font-size: 25px;
+    right:42px;
+    top:10px;
+}
+
+.item i.edit:hover{
+   cursor: pointer;
+   color: #4162f6;
+   transition-duration: 0.2s;
+}
+
 .item i.delete{
     position: absolute;
     font-size: 25px;
@@ -112,6 +128,7 @@ body{
 .item i.delete:hover{
     color:#af0000;
     cursor: pointer;
+    transition-duration: 0.2s;
 }
 
 /* ------------ add item ------------ */

@@ -10,6 +10,32 @@ const LINE_THROUGH = "lineThrough";
 let LIST = [],
 id = 0;
 
+//get the item from the local storage
+let data = localStorage.getItem("TODO");
+
+//check if data is not empty
+if(data){
+        LIST = JSON.parse(data);
+        id = LIST.length;
+        loadList(LIST); 
+}else{
+        //if data isn't empty
+        LIST = [];
+        id = 0;
+}
+
+//load items to the user's interface
+
+function loadlist(array){
+    array.array.forEach(function(item){
+        addToDo(item.name, item.id, item.done, item.trash)
+    });
+}
+
+
+//add item to the local storage
+localStorage.setItem("TODO", JSON.stringify(LIST));
+
 //show current date
 
 const today = new Date();
@@ -30,6 +56,7 @@ function addToDo(toDo, id, done, trash){
     <li class = "item">
         <i class="fa ${DONE} complete" job = "complete" id="${id}"></i>
         <p class="text ${LINE}" >${toDo}</p>
+        <i class="far fa-edit edit"></i>
         <i class="fa fa-trash-o delete" job = "delete" id="${id}"></i>
     </li>`
 
@@ -55,6 +82,9 @@ document.addEventListener("keyup", function(even){
                 });
 
                 id++;
+
+                //add item to the local storage
+                localStorage.setItem("TODO", JSON.stringify(LIST));
             }
             input.value = "";
     }
@@ -90,6 +120,8 @@ list.addEventListener("click", function(event){
         removeToDo(element)
     };
 
+    //add item to the local storage
+    localStorage.setItem("TODO", JSON.stringify(LIST));
 
 });
 
