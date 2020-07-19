@@ -25,19 +25,22 @@ if(data){
 }
 
 //load items to the user's interface
-
 function loadList(array){
     array.forEach(function(item){
         addToDo(item.name, item.id, item.done, item.trash)
     });
 }
 
-
 //add item to the local storage
 localStorage.setItem("TODO", JSON.stringify(LIST));
 
-//show current date
+//clear the local storage
+clear.addEventListener("click", function(){
+    localStorage.clear();
+    location.reload();
+})
 
+//show current date
 const today = new Date();
 const options = {weekday: "long", month: "long", day:"numeric"};
 
