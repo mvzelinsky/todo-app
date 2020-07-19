@@ -26,8 +26,8 @@ if(data){
 
 //load items to the user's interface
 
-function loadlist(array){
-    array.array.forEach(function(item){
+function loadList(array){
+    array.forEach(function(item){
         addToDo(item.name, item.id, item.done, item.trash)
     });
 }
@@ -40,7 +40,6 @@ localStorage.setItem("TODO", JSON.stringify(LIST));
 
 const today = new Date();
 const options = {weekday: "long", month: "long", day:"numeric"};
-
 
 dateElement.innerHTML = today.toLocaleDateString("en", options);
 
